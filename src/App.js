@@ -11,7 +11,7 @@ const App = () => {
     price: 30.99
   },
   {
-    date: new Date(2022, 12, 10),
+    date: new Date(2022, 5, 5),
     title: "New Jeans",
     price: 30.99
   }
