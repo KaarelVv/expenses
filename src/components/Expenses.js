@@ -1,6 +1,8 @@
+import './Expenses.css'
+import Card from "./Card";
 import ExpenseItem from "./ExpenseItem";
 
-const Expenses = () => {
+const Expenses = (props) => {
     // console.log(props)
     const expenses = [
         {
@@ -16,15 +18,15 @@ const Expenses = () => {
     ]
 
     return (
-        <div className="expenses">
-            
+        <Card className="expenses">
+
             <ExpenseItem
                 data={expenses[0]}
             />
             <ExpenseItem
                 data={expenses[1]}
             />
-        </div>
+        </Card>
     )
 }
 
