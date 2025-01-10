@@ -8,6 +8,7 @@ import { useState } from 'react';
 const ExpenseItem = (props) => {
     // console.log(props);
     //    console.log(props.data);
+    
     const [title, setTitle] = useState(props.data.title);
 
     const clickHandler = () => {
