@@ -5,7 +5,12 @@ import "./NewExpense.css"
 const NewExpense =  (props) => {
 
     const saveExpenseDataHandler = (enteredExpenseData) => {
-        console.log(enteredExpenseData)
+        const expenseData = {
+            ...enteredExpenseData,
+            id: Math.floor(Math.random()*10).toString()
+
+        }
+        props.onAddExpense(expenseData)
     } 
 
     return(
