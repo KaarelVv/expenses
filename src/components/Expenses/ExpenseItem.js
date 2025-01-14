@@ -31,4 +31,29 @@ const ExpenseItem = (props) => {
         </Card>)
 }
 
+// const ExpenseItem = (props) => {
+//     // Destructure props.data for clarity
+//     const { date, title, price } = props.data;
+  
+//     const [updatedTitle, setUpdatedTitle] = useState(title);
+  
+//     const clickHandler = () => {
+//       setUpdatedTitle(`Updated by click ${updatedTitle}`);
+//       console.log(updatedTitle);
+//     };
+  
+//     return (
+//       <Card className='expense-item'>
+//         <ExpensDate date={date} />
+//         <div className='expense-item__description'>
+//           <h2>{updatedTitle}</h2>
+//           <div className='expense-item__price'>
+//             {price}
+//           </div>
+//         </div>
+//         <button onClick={clickHandler}>Click Me</button>
+//       </Card>
+//     );
+//   };
+
 export default ExpenseItem
