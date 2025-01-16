@@ -1,59 +1,58 @@
-import { useState } from "react"
+import { useRef} from "react"
 import "./ExpenseForm.css"
 
 const ExpenseForm = (props) => {
 
-    const [enteredTitle, setEnteredTitle] = useState('')
-    const [enteredAmount, setEnteredAmount] = useState('')
-    const [enteredDate, setEnteredDate] = useState('')
+    
 
+    const titleInputRef = useRef()
+    const amountInputRef = useRef()
+    const dateInputRef = useRef()
+    console.log(titleInputRef)
 
-    const titleChangehandler = (event) => {
-        setEnteredTitle(event.target.value)
-    }
-    const priceChangehandler = (event) => {
-        setEnteredAmount(event.target.value)
-    }
-    const dateChangehandler = (event) => {
-        setEnteredDate(event.target.value)
-    }
+    
 
-    const submithandler = (event) => {
+    const submitHandler = (event) => {
         event.preventDefault()
+
+        const enteredTitle = titleInputRef.current.value
+        const enteredAmount = amountInputRef.current.value
+        const enteredDate = dateInputRef.current.value
+
         const expenseData = {
             title: enteredTitle,
             amount: enteredAmount,
             date: new Date(enteredDate)
         }
+
         console.log(expenseData)
         props.onSaveExpenseData(expenseData)
-        setEnteredTitle('')
-        setEnteredAmount('')
-        setEnteredDate('')
+        
+        titleInputRef.current.value = ''
+        amountInputRef.current.value = ''
+        dateInputRef.current.value = ''
 
     }
     return (
-        <form onSubmit={submithandler}>
+        <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
                     <input type="text"
-                        onChange={titleChangehandler}
-                        value={enteredTitle}
+                       
+                       ref={titleInputRef}
                     />
                 </div>
                 <div className="new-expense__control">
                     <label>Price</label>
                     <input type="number" min="0.01" step="0.01"
-                        onChange={priceChangehandler}
-                        value={enteredAmount}
+                        ref={amountInputRef}
                     />
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
-                    <input type="date" min="2024-11-12" max="2026-01-31"
-                        onChange={dateChangehandler}
-                        value={enteredDate}
+                    <input type="date" min="2023-11-12" max="2026-01-31"
+                       ref={dateInputRef}
                     />
                 </div>
             </div>
